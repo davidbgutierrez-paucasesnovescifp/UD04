@@ -120,4 +120,24 @@ public class CCuenta {
             throw new Exception ("No se hay suficiente saldo");
         saldo = saldo - cantidad;
     }
+    /**
+     * Operativa para comprobar el saldo actual y realiza las operaciones de retirar e ingresar.
+     * @param cantidad Cantidad a retirar e ingresar.
+     * @author David Gutiérrez
+     */
+    public void operativa_cuenta(float cantidad) {
+        System.out.println("El saldo actual es "+ estado() );
+
+        try {
+            retirar(cantidad);
+        } catch (Exception e) {
+            System.out.print("Fallo al retirar");
+        }
+        try {
+            System.out.println("Ingreso en cuenta");
+            ingresar(cantidad);
+        } catch (Exception e) {
+            System.out.print("Fallo al ingresar");
+        }
+    }
 }
